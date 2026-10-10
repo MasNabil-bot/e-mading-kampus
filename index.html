@@ -461,9 +461,9 @@
         Keseluruhan Mading
       </button>
       <button class="filter-btn" data-filter="Juni">Juni</button>
-      <button class="filter-btn" data-filter="Agustus">Juli</button>
-      <button class="filter-btn" data-filter="September">Agustus</button>
-      <button class="filter-btn" data-filter="Oktober">September</button>
+      <button class="filter-btn" data-filter="Juli">Juli</button>
+      <button class="filter-btn" data-filter="Agustus">Agustus</button>
+      <button class="filter-btn" data-filter="September">September</button>
     </div>
 
     <div id="galleryContainer"></div>
@@ -553,7 +553,7 @@
     function tampilkanPoster(filter = "semua") {
       galleryContainer.innerHTML = "";
 
-      const bulan = ["Juni", "Agustus", "September", "Oktober"];
+      const bulan = ["Juni", "Juli", "Agustus", "September"];
 
       bulan.forEach(namaBulan => {
         if (filter !== "semua" && filter !== namaBulan) {
