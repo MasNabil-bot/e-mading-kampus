@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Mading Kampus</title>
+
+  <style>
+    :root {
+      --navy: #101d36;
+      --navy-light: #1c3154;
+      --gold: #e7bd67;
+      --cream: #f7f5ef;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: #202b3c;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 390px;
+      padding: 75px 8%;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 85% 30%,
+        #344a6c 0, transparent 35%),
+        linear-gradient(120deg, #101d36, #1c3154);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      animation: muncul 0.9s ease;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 570px;
+      color: #d6dce7;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 12px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #f3d493;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 35px 7%;
+      background: white;
+    }
+
+    .intro-card {
+      padding: 20px;
+      border-left: 3px solid var(--gold);
+      background: #faf9f5;
+      border-radius: 5px;
+    }
+
+    .intro-card h3 {
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .intro-card p {
+      font-size: 13px;
+      color: #687386;
+    }
+
+    .section {
+      padding: 65px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading small {
+      color: #9b742d;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(26px, 4vw, 36px);
+      margin: 7px 0;
+    }
+
+    .section-heading p {
+      color: #6b7280;
+    }
+
+    .filter-area {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .filter-btn {
+      padding: 9px 18px;
+      border: 1px solid #d5d9e0;
+      border-radius: 25px;
+      background: white;
+      cursor: pointer;
+      color: var(--navy);
+      transition: 0.3s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .month-title {
+      color: var(--navy);
+      margin: 35px 0 18px;
+      padding-left: 12px;
+      border-left: 4px solid var(--gold);
+      font-size: 22px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .poster-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 22px #14244312;
+      transition: transform 0.35s, box-shadow 0.35s;
+      animation: muncul 0.6s ease both;
+    }
+
+    .poster-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 28px #14244320;
+    }
+
+    .poster-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      background: #e3e7ed;
+    }
+
+    .poster-info {
+      padding: 18px;
+    }
+
+    .poster-month {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #96702e;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .poster-info h3 {
+      margin: 6px 0;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .poster-info p {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+
+    .zoom-btn {
+      background: white;
+      color: var(--navy);
+      border: 1px solid #d9dee6;
+      border-radius: 6px;
+      padding: 9px 12px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .zoom-btn:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    .empty-message {
+      text-align: center;
+      color: #6b7280;
+      padding: 25px;
+    }
+
+    .about {
+      background: #eaeef4;
+      padding: 55px 7%;
+      text-align: center;
+    }
+
+    .about h2 {
+      color: var(--navy);
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      color: #5e6878;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #dce2ec;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 13px;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* Tampilan poster saat diperbesar */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: #07101eeF;
+      padding: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show {
+      display: flex;
+      animation: muncul 0.25s ease;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 7px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      background: transparent;
+      border: none;
+      font-size: 38px;
+      cursor: pointer;
+    }
+
+    @keyframes muncul {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .intro {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 7%;
+      }
+
+      .section {
+        padding: 45px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">E-MADING<span>.</span></div>
+
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#galeri">Galeri Poster</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="beranda">
+    <div class="hero-content">
+      <div class="tag">MEDIA INFORMASI KAMPUS</div>
+
+      <h1>
+        Satu Ruang,<br>
+        Banyak <span>Inspirasi.</span>
+      </h1>
+
+      <p>
+        Selamat datang di E-Mading kampus. Temukan informasi,
+        kreativitas, kegiatan, dan karya mahasiswa dalam satu
+        ruang digital yang mudah diakses.
+      </p>
+
+      <a href="#galeri" class="button">Jelajahi Mading ↗</a>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="intro-card">
+      <h3>✦ Informasi</h3>
+      <p>Temukan informasi dan pengumuman terbaru kampus.</p>
+    </div>
+
+    <div class="intro-card">
+      <h3>✦ Kreativitas</h3>
+      <p>Tempat menampilkan poster dan karya kreatif mahasiswa.</p>
+    </div>
+
+    <div class="intro-card">
+      <h3>✦ Dokumentasi</h3>
+      <p>Arsip digital poster yang tersusun berdasarkan bulan.</p>
+    </div>
+  </section>
+
+  <main class="section" id="galeri">
+    <div class="section-heading">
+      <small>Galeri Digital</small>
+      <h2>Jelajahi Mading Kampus</h2>
+      <p>Pilih bulan untuk melihat koleksi poster.</p>
+    </div>
+
+    <div class="filter-area" id="filterArea">
+      <button class="filter-btn active" data-filter="semua">
+        Semua Poster
+      </button>
+      <button class="filter-btn" data-filter="Juni">Juni</button>
+      <button class="filter-btn" data-filter="Agustus">Agustus</button>
+      <button class="filter-btn" data-filter="September">September</button>
+      <button class="filter-btn" data-filter="Oktober">Oktober</button>
+    </div>
+
+    <div id="galleryContainer"></div>
+  </main>
+
+  <section class="about" id="tentang">
+    <h2>Tentang E-Mading</h2>
+    <p>
+      E-Mading merupakan media informasi digital untuk menyampaikan
+      pengumuman, kegiatan, dan karya mahasiswa. Platform ini
+      diharapkan menjadi ruang informasi yang kreatif, menarik,
+      dan mudah diakses oleh seluruh civitas akademika.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2026 <span>E-Mading Kampus</span> · Media Informasi Digital</p>
+    <p>Dibuat untuk mendukung kreativitas mahasiswa.</p>
+  </footer>
+
+  <!-- Jendela untuk memperbesar poster -->
+  <div class="modal" id="posterModal">
+    <button class="close-modal" id="closeModal" aria-label="Tutup">
+      &times;
+    </button>
+    <img id="modalImage" src="" alt="Poster diperbesar">
+  </div>
+
+  <script>
+    /*
+      DATA POSTER:
+      Ganti nilai image dengan alamat gambar poster milikmu.
+      Ganti judul, bulan, dan deskripsi sesuai isi poster.
+    */
+
+    const posters = [
+      {
+        title: "Poster Kegiatan Kampus",
+        month: "Juni",
+        description: "Informasi kegiatan dan agenda kampus.",
+        image: "https://placehold.co/600x750/101d36/e7bd67?text=POSTER+JUNI"
+      },
+      {
+        title: "Kreativitas Mahasiswa",
+        month: "Juni",
+        description: "Ruang untuk karya dan ide kreatif mahasiswa.",
+        image: "https://placehold.co/600x750/1c3154/ffffff?text=KREATIVITAS"
+      },
+      {
+        title: "Informasi Akademik",
+        month: "Agustus",
+        description: "Informasi penting seputar kegiatan akademik.",
+        image: "https://placehold.co/600x750/72552b/ffffff?text=AKADEMIK"
+      },
+      {
+        title: "Semangat Kemerdekaan",
+        month: "Agustus",
+        description: "Poster bertema kemerdekaan dan nasionalisme.",
+        image: "https://placehold.co/600x750/9d3030/ffffff?text=KEMERDEKAAN"
+      },
+      {
+        title: "Inspirasi Generasi Digital",
+        month: "September",
+        description: "Membangun kreativitas di era digital.",
+        image: "https://placehold.co/600x750/234c63/ffffff?text=GENERASI+DIGITAL"
+      },
+      {
+        title: "Karya dan Prestasi",
+        month: "September",
+        description: "Apresiasi karya dan prestasi mahasiswa.",
+        image: "https://placehold.co/600x750/4b3d70/ffffff?text=PRESTASI"
+      },
+      {
+        title: "Agenda Bulan Oktober",
+        month: "Oktober",
+        description: "Rangkuman agenda dan informasi bulan ini.",
+        image: "https://placehold.co/600x750/8b692f/ffffff?text=AGENDA+OKTOBER"
+      }
+    ];
+
+    const galleryContainer =
+      document.getElementById("galleryContainer");
+
+    const filterButtons =
+      document.querySelectorAll(".filter-btn");
+
+    function tampilkanPoster(filter = "semua") {
+      galleryContainer.innerHTML = "";
+
+      const bulan = ["Juni", "Agustus", "September", "Oktober"];
+
+      bulan.forEach(namaBulan => {
+        if (filter !== "semua" && filter !== namaBulan) {
+          return;
+        }
+
+        const dataBulan = posters.filter(
+          poster => poster.month === namaBulan
+        );
+
+        if (dataBulan.length === 0) {
+          return;
+        }
+
+        const judulBulan = document.createElement("h3");
+        judulBulan.className = "month-title";
+        judulBulan.textContent = "Poster Bulan " + namaBulan;
+        galleryContainer.appendChild(judulBulan);
+
+        const gallery = document.createElement("div");
+        gallery.className = "gallery";
+
+        dataBulan.forEach(poster => {
+          const card = document.createElement("article");
+          card.className = "poster-card";
+
+          const img = document.createElement("img");
+          img.className = "poster-image";
+          img.src = poster.image;
+          img.alt = poster.title;
+          img.loading = "lazy";
+
+          img.addEventListener("click", () => {
+            perbesarPoster(poster.image, poster.title);
+          });
+
+          const info = document.createElement("div");
+          info.className = "poster-info";
+
+          const monthLabel = document.createElement("div");
+          monthLabel.className = "poster-month";
+          monthLabel.textContent = poster.month;
+
+          const title = document.createElement("h3");
+          title.textContent = poster.title;
+
+          const desc = document.createElement("p");
+          desc.textContent = poster.description;
+
+          const zoomButton = document.createElement("button");
+          zoomButton.className = "zoom-btn";
+          zoomButton.textContent = "⊕ Perbesar Poster";
+
+          zoomButton.addEventListener("click", () => {
+            perbesarPoster(poster.image, poster.title);
+          });
+
+          info.append(monthLabel, title, desc, zoomButton);
+          card.append(img, info);
+          gallery.appendChild(card);
+        });
+
+        galleryContainer.appendChild(gallery);
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        tampilkanPoster(button.dataset.filter);
+      });
+    });
+
+    const modal = document.getElementById("posterModal");
+    const modalImage = document.getElementById("modalImage");
+
+    function perbesarPoster(url, judul) {
+      modalImage.src = url;
+      modalImage.alt = judul;
+      modal.classList.add("show");
+    }
+
+    function tutupPoster() {
+      modal.classList.remove("show");
+      modalImage.src = "";
+    }
+
+    document.getElementById("closeModal")
+      .addEventListener("click", tutupPoster);
+
+    modal.addEventListener("click", event => {
+      if (event.target === modal) {
+        tutupPoster();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        tutupPoster();
+      }
+    });
+
+    // Tampilkan semua poster saat halaman dibuka.
+    tampilkanPoster();
+  </script>
+
+</body>
+</html>
