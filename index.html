@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Mading Kampus</title>
+  <title>E-Mading Bulanan SD 2 Semarang</title>
 
   <style>
     :root {
@@ -410,16 +410,12 @@
   <header>
     <div class="logo">E-MADING<span>.</span></div>
 
-    <nav>
-      <a href="#beranda">Beranda</a>
-      <a href="#galeri">Galeri Poster</a>
-      <a href="#tentang">Tentang</a>
-    </nav>
+    
   </header>
 
   <section class="hero" id="beranda">
     <div class="hero-content">
-      <div class="tag">MEDIA INFORMASI KAMPUS</div>
+      <div class="tag">MEDIA INFORMASI BULANAN</div>
 
       <h1>
         Satu Ruang,<br>
@@ -427,7 +423,7 @@
       </h1>
 
       <p>
-        Selamat datang di E-Mading kampus. Temukan informasi,
+        Selamat datang di E-Mading SD Negeri 2 Semarang. Temukan informasi,
         kreativitas, kegiatan, dan karya mahasiswa dalam satu
         ruang digital yang mudah diakses.
       </p>
@@ -439,35 +435,35 @@
   <section class="intro">
     <div class="intro-card">
       <h3>✦ Informasi</h3>
-      <p>Temukan informasi dan pengumuman terbaru kampus.</p>
+      <p>Menampilkan informasi dan pengumuman di setiap bulan.</p>
     </div>
 
     <div class="intro-card">
       <h3>✦ Kreativitas</h3>
-      <p>Tempat menampilkan poster dan karya kreatif mahasiswa.</p>
+      <p>Menampilkan poster dan karya kreatif mahasiswa/warga di setiap bulan.</p>
     </div>
 
     <div class="intro-card">
       <h3>✦ Dokumentasi</h3>
-      <p>Arsip digital poster yang tersusun berdasarkan bulan.</p>
+      <p>Arsip digital madding yang tersusun berdasarkan bulan.</p>
     </div>
   </section>
 
   <main class="section" id="galeri">
     <div class="section-heading">
       <small>Galeri Digital</small>
-      <h2>Jelajahi Mading Kampus</h2>
-      <p>Pilih bulan untuk melihat koleksi poster.</p>
+      <h2>Jelajahi Mading Event Setiap Bulan</h2>
+      <p>Pilih bulan untuk melihat koleksi mading.</p>
     </div>
 
     <div class="filter-area" id="filterArea">
       <button class="filter-btn active" data-filter="semua">
-        Semua Poster
+        Keseluruhan Mading
       </button>
       <button class="filter-btn" data-filter="Juni">Juni</button>
-      <button class="filter-btn" data-filter="Agustus">Agustus</button>
-      <button class="filter-btn" data-filter="September">September</button>
-      <button class="filter-btn" data-filter="Oktober">Oktober</button>
+      <button class="filter-btn" data-filter="Agustus">Juli</button>
+      <button class="filter-btn" data-filter="September">Agustus</button>
+      <button class="filter-btn" data-filter="Oktober">September</button>
     </div>
 
     <div id="galleryContainer"></div>
@@ -484,8 +480,8 @@
   </section>
 
   <footer>
-    <p>© 2026 <span>E-Mading Kampus</span> · Media Informasi Digital</p>
-    <p>Dibuat untuk mendukung kreativitas mahasiswa.</p>
+    <p>© 2026 <span>E-Mading Kampus</span> · Media Informasi Event Digital Disetiap Bulan</p>
+    <p>Dibuat untuk mendukung kreativitas mahasiswa/warga.</p>
   </footer>
 
   <!-- Jendela untuk memperbesar poster -->
@@ -505,45 +501,45 @@
 
     const posters = [
       {
-        title: "Poster Kegiatan Kampus",
+        title: "Mading Karya Anak SD Kelas 5",
         month: "Juni",
-        description: "Informasi kegiatan dan agenda kampus.",
+        description: "Mading Tentang Hari Kelahiran Pancasila 1 Juni.",
         image: "https://placehold.co/600x750/101d36/e7bd67?text=POSTER+JUNI"
       },
       {
-        title: "Kreativitas Mahasiswa",
+        title: "Mading Karya Anak SD Kelas 4",
         month: "Juni",
-        description: "Ruang untuk karya dan ide kreatif mahasiswa.",
+        description: "Mading Tentang Tahun Baru Islam 16 Juni.",
         image: "https://placehold.co/600x750/1c3154/ffffff?text=KREATIVITAS"
       },
       {
-        title: "Informasi Akademik",
-        month: "Agustus",
-        description: "Informasi penting seputar kegiatan akademik.",
+        title: "Mading Karya Anak SD Kelas 1",
+        month: "Juli",
+        description: "Mading Pengenalan & Perawatan Lingkungan Sekolah.",
         image: "https://placehold.co/600x750/72552b/ffffff?text=AKADEMIK"
       },
       {
-        title: "Semangat Kemerdekaan",
-        month: "Agustus",
-        description: "Poster bertema kemerdekaan dan nasionalisme.",
+        title: "Mading Karya Anak SD Kelas 1",
+        month: "Juli",
+        description: "Mading Perkenalan Siswa Baru.",
         image: "https://placehold.co/600x750/9d3030/ffffff?text=KEMERDEKAAN"
       },
       {
-        title: "Inspirasi Generasi Digital",
-        month: "September",
-        description: "Membangun kreativitas di era digital.",
+        title: "Mading Karya Anak SD Kelas 6",
+        month: "Agustus",
+        description: "Mading Tentang Kemerdekaan 17 Agustus.",
         image: "https://placehold.co/600x750/234c63/ffffff?text=GENERASI+DIGITAL"
       },
       {
-        title: "Karya dan Prestasi",
-        month: "September",
-        description: "Apresiasi karya dan prestasi mahasiswa.",
+        title: "Mading Karya Anak SD Kelas 6",
+        month: "Agustus",
+        description: "Mading Tentang Maulid Nabi Muhammad SAW 25 Agustus.",
         image: "https://placehold.co/600x750/4b3d70/ffffff?text=PRESTASI"
       },
       {
-        title: "Agenda Bulan Oktober",
-        month: "Oktober",
-        description: "Rangkuman agenda dan informasi bulan ini.",
+        title: "Mading Karya Anak SD Kelas 5",
+        month: "September",
+        description: "Mading Tentang Peringatan G30S PKI.",
         image: "https://placehold.co/600x750/8b692f/ffffff?text=AGENDA+OKTOBER"
       }
     ];
